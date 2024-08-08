@@ -22,3 +22,7 @@ Replace `yourfolder/res/sim` with the binary from the releases folder (or compil
 - AIX 5.x (ppc/ia64)
 - HP-UX 11.x (hppa/ia64)
 
+## Legal
+
+- GPL
+- Copyright (C) 1989 - 2007 Electronic Arts Inc.
