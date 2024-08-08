@@ -17,10 +17,10 @@ Replace `yourfolder/res/sim` with the binary from the releases folder (or compil
 ## Currently supported OS
 
 - AIX 4.3
-
-## Upcoming / TODO
-
-- AIX 5.x
 - IRIX 6.5
-- HP-UX 11.x
+
+## Planned
+
+- AIX 5.x (ppc/ia64)
+- HP-UX 11.x (ppc/ia64)
 
