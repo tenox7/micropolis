@@ -1,6 +1,6 @@
 # Micropolis for Vintage Unix
 
-This is a fork of [Micropolis Activity](https://github.com/SimHacker/micropolis/tree/master/micropolis-activity) that targets vintage commercial Unix systems such as AIX, DEC Unix, HPUX, IRIX, OSF/1, SunOS, etc. I uses assets, including TCL/TK GUI from the original [DUX SimCity for Unix](https://web.archive.org/web/19970714233606/http://www.dux.com/simctyux.html).
+This is a fork of [Micropolis Activity](https://github.com/SimHacker/micropolis/tree/master/micropolis-activity). It's uses the ["old gen"](https://wiki.laptop.org/go/Micropolis#Old_Generation:_C_TCL/Tk_Micropolis) source code, only slightly modified from the original source. Targets vintage commercial Unix systems such as AIX, HPUX, IRIX, OSF/1, SunOS, etc. I uses assets, including TCL/TK GUI from the original [DUX SimCity for Unix](https://web.archive.org/web/19970714233606/http://www.dux.com/simctyux.html).
 
 ![Micropolis-IRIX](simirix.png)
 
@@ -24,5 +24,5 @@ Replace `yourfolder/res/sim` with the binary from the releases folder (or compil
 
 ## Legal
 
-- GPL
+- License: GPL
 - Copyright (C) 1989 - 2007 Electronic Arts Inc.
