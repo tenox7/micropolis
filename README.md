@@ -11,7 +11,7 @@ Download a demo version of [DUX SimCity for Unix](https://web.archive.org/web/19
 
 Unpack the tarball to a folder on your disk, typically somewhere under `/usr`.
 
-Replace `yourfolder/res/sim` with the binary from the releases folder (or compile yourself). Also `cd /usr/yourfolder; ./sim` should work.
+Replace `yourfolder/res/sim` with the binary from the releases folder (or compile yourself). 
 
 ## Currently supported OS
 
