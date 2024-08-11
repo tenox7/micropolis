@@ -15,12 +15,12 @@ Replace `yourfolder/res/sim` with the binary from the releases folder (or compil
 
 ## Currently supported OS
 
-- AIX 4.3
+- AIX 4.3, 5.1 (ppc)
 - IRIX 6.5
 
 ## Planned
 
-- AIX 5.x (ppc/ia64)
+- AIX 5.1 (ia64)
 - HP-UX 11.x (hppa/ia64)
 
 ## Legal
