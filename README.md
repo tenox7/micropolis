@@ -1,6 +1,6 @@
 # Micropolis for Vintage Unix
 
-This is a fork of [Micropolis Activity](https://github.com/SimHacker/micropolis/tree/master/micropolis-activity). It's uses the OG ["old gen"](https://wiki.laptop.org/go/Micropolis#Old_Generation:_C_TCL/Tk_Micropolis) source code, which had only minor cosmetic changes compared to [DUX SimCity for Unix](https://web.archive.org/web/19970714233606/http://www.dux.com/simctyux.html). It expects assets from the original version, effectively reversing changes mentioned in [here](https://raw.githubusercontent.com/SimHacker/micropolis/master/micropolis-activity/src/PLAN.txt). Targets vintage commercial Unix systems such as AIX, HPUX, IRIX, OSF/1, SunOS, etc. 
+This is a fork of [Micropolis Activity](https://github.com/SimHacker/micropolis/tree/master/micropolis-activity). It's uses the OG ["old gen"](https://wiki.laptop.org/go/Micropolis#Old_Generation:_C_TCL/Tk_Micropolis) source code, which had only minor cosmetic changes compared to [DUX SimCity for Unix](https://web.archive.org/web/19970714233606/http://www.dux.com/simctyux.html). It expects assets from the original DUX SimCity, effectively reversing changes mentioned in [here](https://raw.githubusercontent.com/SimHacker/micropolis/master/micropolis-activity/src/PLAN.txt). Targets vintage Unix systems not supported by DUX Simcity.
 
 
 ![Micropolis-IRIX](simirix.png)
@@ -20,7 +20,32 @@ Replace `yourfolder/res/sim` with the binary from the releases folder (or compil
 
 ## Planned
 
-- HP-UX 11.x (hppa/ia64)
+- HP-UX 11.x (ia64)
+
+## Maybe
+
+- UnixWare
+- Dell Unix
+- Sinix
+- Dynix
+- DG/UX
+- Minix
+- Ultrix
+- Interactive Unix
+
+## Maybe Not
+
+- QNX - no X11
+- NextStep - no X11
+- A/UX
+
+## Not Planned
+
+Because the original DUX SimCity works well enough.
+
+- SunOS / Solaris
+- DEC OSF/1 Unix / Tru64
+- IRIX 5.x
 
 ## Legal
 
