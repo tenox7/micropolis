@@ -32,6 +32,7 @@ Replace `yourfolder/res/sim` with the binary from the releases folder (or compil
 - Minix
 - Ultrix
 - Interactive Unix
+- Solaris (ppc)
 
 ## Maybe Not
 
@@ -43,6 +44,7 @@ Replace `yourfolder/res/sim` with the binary from the releases folder (or compil
 
 Because the original DUX SimCity works well enough.
 
+- HP-UX (hppa)
 - SunOS / Solaris
 - DEC OSF/1 Unix / Tru64
 - IRIX 5.x
