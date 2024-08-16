@@ -17,6 +17,7 @@ Replace `yourfolder/res/sim` with the binary from the releases folder (or compil
 
 - AIX 4.3, 5.1 (ppc, ia64)
 - IRIX 6.5 (mips)
+- HP-UX 11i (hppa2)
 
 ## Planned
 
