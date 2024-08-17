@@ -23,10 +23,10 @@ Replace `yourfolder/res/sim` with the binary from the releases folder (or compil
 
 - HP-UX 11.31 (ia64)
 - Solaris 10 (x64)
+- UnixWare (x86)
 
 ## Maybe
 
-- UnixWare
 - Dell Unix
 - Sinix
 - Dynix
