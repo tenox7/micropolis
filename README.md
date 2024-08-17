@@ -21,7 +21,8 @@ Replace `yourfolder/res/sim` with the binary from the releases folder (or compil
 
 ## Planned
 
-- HP-UX 11.x (ia64)
+- HP-UX 11.31 (ia64)
+- Solaris 10 (x64)
 
 ## Maybe
 
@@ -34,22 +35,13 @@ Replace `yourfolder/res/sim` with the binary from the releases folder (or compil
 - Ultrix
 - Interactive Unix
 - Solaris (ppc)
-- Solaris 10-11
 
 ## Maybe Not
 
+- Solaris 11 - no X11
 - QNX - no X11
 - NextStep - no X11
-- A/UX
-
-## Not Planned
-
-Because the original DUX SimCity works well enough.
-
-- HP-UX 9-11 (hppa1)
-- SunOS / Solaris
-- DEC OSF/1 Unix / Tru64
-- IRIX 5.x
+- A/UX - no X11
 
 ## Legal
 
