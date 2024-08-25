@@ -1,4 +1,4 @@
-# Micropolis for Vintage Unix
+# Micropolis for Vintage Unix using SimCity assets
 
 This is a fork of [Micropolis Activity](https://github.com/SimHacker/micropolis/tree/master/micropolis-activity). It's uses the ["old gen"](https://wiki.laptop.org/go/Micropolis#Old_Generation:_C_TCL/Tk_Micropolis) source code, which had only minor cosmetic changes compared to [DUX SimCity for Unix](https://web.archive.org/web/19970714233606/http://www.dux.com/simctyux.html). It expects assets from the original DUX SimCity, effectively reversing changes mentioned in [here](https://raw.githubusercontent.com/SimHacker/micropolis/master/micropolis-activity/src/PLAN.txt). Targets vintage Unix systems not supported by DUX Simcity.
 
@@ -17,11 +17,11 @@ Replace `yourfolder/res/sim` with the binary from the releases folder (or compil
 
 - AIX 4.3, 5.1 (ppc, ia64)
 - IRIX 6.5 (mips)
-- HP-UX 11i (hppa2)
+- HP-UX 11i-v1 (hppa2)
+- HP-UX 11i-v3 (ia64)
 
 ## Planned
 
-- HP-UX 11.31 (ia64)
 - Solaris 10 (x64)
 - UnixWare (x86)
 
