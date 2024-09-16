@@ -24,7 +24,7 @@
 
 TCL_LIBRARY =	/usr/local/lib/tcl
 
-CC =		gcc
+CC =		cc
 
 CFLAGS =	-O3 -I. -DTCL_LIBRARY=\"${TCL_LIBRARY}\" -DIS_LINUX
 #CFLAGS =	-g -I. -DTCL_LIBRARY=\"${TCL_LIBRARY}\" -DIS_LINUX

@@ -5,7 +5,7 @@ TCLXHOME = ../tclx
 TCLLIBRARY = /usr/local/lib/tcl
 TKLIBRARY = /usr/local/lib/tk
 
-CC = gcc
+CC = cc
 
 OPTFLAGS = -O3
 #OPTFLAGS = -g
@@ -35,7 +35,7 @@ LIBS =	$(TCLXHOME)/libtk.a \
 	-lm \
         -lX11 \
         -lXext \
-	-lXpm
+	../xpm/lib/libXpm.a
 
 SRCS = \
 	sim.c \
