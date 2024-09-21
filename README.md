@@ -19,11 +19,13 @@ Replace `yourfolder/res/sim` with the binary from the releases folder (or compil
 - IRIX 6.5 (mips)
 - HP-UX 11i-v1 (hppa2)
 - HP-UX 11i-v3 (ia64)
+- Solaris 9 (x86)
 
 ## Planned
 
 - Solaris 10 (x64)
 - UnixWare (x86)
+- OpenDesktop (x86)
 
 ## Maybe
 
