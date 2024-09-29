@@ -9,9 +9,9 @@ This is a fork of [Micropolis Activity](https://github.com/SimHacker/micropolis/
 
 Download a demo version of [DUX SimCity for Unix](https://web.archive.org/web/19970714233306/http://www.dux.com/demo.html) also mirrored [here](http://osarchive.org/apps/simcity) and [here](http://tenox.pdp-11.ru/apps/simcity/).
 
-Unpack the tarball to a folder on your disk, typically somewhere under `/usr`.
+Unpack the tarball to a folder on your disk, typically under `/usr/SimCity`.
 
-Replace `yourfolder/res/sim` with the binary from the releases folder (or compile yourself). 
+Replace `/usr/SimCity/res/sim` with the binary from the releases folder (or compile yourself). 
 
 ## Troubleshooting
 
