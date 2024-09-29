@@ -13,6 +13,18 @@ Unpack the tarball to a folder on your disk, typically somewhere under `/usr`.
 
 Replace `yourfolder/res/sim` with the binary from the releases folder (or compile yourself). 
 
+## Troubleshooting
+
+### Couldn't add a player on :0.0...
+
+Most commonly this is an authorization issue. Try running `xhost +`.
+
+Secondly could be lack of 8-bit color display or visual. Try changing number of colors to 8bpp. On certain platforms you can add a 8bpp visual.
+
+### The window editor is too small on my giant display
+
+Edit res/weditor.tcl and change "wm maxsize ..."
+
 ## Currently supported OS
 
 - AIX 4.3, 5.1 (ppc, ia64)
@@ -24,11 +36,11 @@ Replace `yourfolder/res/sim` with the binary from the releases folder (or compil
 ## Planned
 
 - Solaris 10 (x64)
-- UnixWare (x86)
-- OpenDesktop (x86)
 
 ## Maybe
 
+- UnixWare
+- OpenDesktop
 - Dell Unix
 - Sinix
 - Dynix
