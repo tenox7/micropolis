@@ -53,7 +53,7 @@ TCL_UCB_DIR=../tcl
 TCL_TK_SHELL=wish
 TCL_TK_DIR=../tk
 TK_LIBRARY=/usr/local/lib/tk
-XPM_LIBS=../xpm/lib/libXpm.a
+XPM_LIBS=../xpm/libXpm.a
 
 #------------------------------------------------------------------------------
 # Compiler debug/optimization/profiling flag to use.  Not that if debugging or
