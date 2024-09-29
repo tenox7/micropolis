@@ -13,7 +13,7 @@ OPTFLAGS = -O3
 #DEFINES = -DIS_LINUX -DIS_INTEL -DNET
 DEFINES = -DIS_LINUX -DNET
 
-CFLAGS = $(OPTFLAGS) $(DEFINES)
+CFLAGS = $(OPTFLAGS) $(DEFINES) $(INCLUDES)
 
 #LDFLAGS = -Bstatic
 
@@ -26,7 +26,8 @@ INCLUDES = \
 	-I/usr/local/include/X11 \
 	-I$(TCLHOME) \
 	-I$(TCLXHOME)/src \
-	-I$(TKHOME)
+	-I$(TKHOME) \
+	-I../xpm
 
 CPPFLAGS = $(INCLUDES)
 
@@ -35,7 +36,7 @@ LIBS =	$(TCLXHOME)/libtk.a \
 	-lm \
         -lX11 \
         -lXext \
-	../xpm/lib/libXpm.a
+	../xpm/libXpm.a
 
 SRCS = \
 	sim.c \
