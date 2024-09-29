@@ -34,8 +34,8 @@ CFLAGS		= -I. -I$(XINCLUDE) -I$(XLOINCL) -I$(TCL_DIR) -O3 -DTK_VERSION=\"2.3\" -
 
 TCL_DIR		= ../tcl
 XINCLUDE	= /usr/include/X11
-XLOINCL		= /usr/local/include/X11
-XLIB		= -L/usr/X11R6/lib -lX11 ../xpm/lib/libXpm.a
+XLOINCL		= ../xpm
+XLIB		= -L/usr/X11R6/lib -lX11 ../xpm/libXpm.a
 
 LIBS = libtk.a $(TCL_DIR)/libtcl.a
 LINKS = $(LIBS) 

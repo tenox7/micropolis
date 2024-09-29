@@ -27,41 +27,83 @@
 # XPM Makefile - Arnaud LE HORS
 #
 
-SUBDIRS= lib sxpm
+CC = cc
+AR = ar r
+RANLIB = ranlib
+RM = rm -f
+# on sysV, define this as cp.
+INSTALL = install -c
+MKDIRHIER = mkdir
+LN = ln -s
 
-MAKE=make
-MFLAGS=-f Makefile.noX
-CURRENT_DIR=.
+CDEBUGFLAGS= -O
 
-all::
-	@case '${MFLAGS}' in *[ik]*) set +e;; esac; \
-	for i in $(SUBDIRS) ;\
-	do \
-	(cd $$i ; echo "making" all "in $(CURRENT_DIR)/$$i..."; \
-	$(MAKE) $(MFLAGS)  all); \
-	done
-clean::
-	@case '${MFLAGS}' in *[ik]*) set +e;; esac; \
-	for i in $(SUBDIRS) ;\
-	do \
-	(cd $$i ; echo "cleaning" "in $(CURRENT_DIR)/$$i..."; \
-	$(MAKE) $(MFLAGS) RM_CMD='$(RM_CMD)' clean); \
-	done
+# if your system doesn't provide strcasecmp add -DNEED_STRCASECMP
+# if your system doesn't provide strdup add -DNEED_STRDUP
+# if your system doesn't provide pipe remove -DZPIPE
+DEFINES = -DZPIPE
 
+DESTBINDIR=/usr/bin/X11
+DESTLIBDIR=/usr/lib/X11
+DESTINCLUDEDIR=/usr/include/X11
 
-install::
-	@case '${MFLAGS}' in *[ik]*) set +e;; esac; \
-	for i in $(SUBDIRS) ;\
-	do \
-	(cd $$i ; echo "installing" "in $(CURRENT_DIR)/$$i..."; \
-	$(MAKE) $(MFLAGS) DESTDIR='$(DESTDIR)' install); \
-	done
+OBJS= data.o create.o misc.o rgb.o scan.o parse.o hashtab.o \
+      WrFFrP.o RdFToP.o CrPFrDat.o CrDatFrP.o \
+      WrFFrI.o RdFToI.o CrIFrDat.o CrDatFrI.o \
+      CrIFrBuf.o CrPFrBuf.o CrBufFrI.o CrBufFrP.o \
+      RdFToDat.o WrFFrDat.o \
+      Attrib.o CrIFrP.o CrPFrI.o Image.o Info.o RdFToBuf.o WrFFrBuf.o
 
-install.man::
-	@case '${MFLAGS}' in *[ik]*) set +e;; esac; \
-	for i in $(SUBDIRS) ;\
-	do \
-	(cd $$i ; echo "installing man pages" "in $(CURRENT_DIR)/$$i..."; \
-	$(MAKE) $(MFLAGS) DESTDIR='$(DESTDIR)' install.man); \
-	done
+CFLAGS= $(CDEBUGFLAGS) $(DEFINES)
 
+all: ../X11/xpm.h libXpm.a
+
+clean: 
+	$(RM) *.o libXpm.a
+
+libXpm.a: $(OBJS)
+	$(AR) libXpm.a $(OBJS)
+	$(RANLIB) libXpm.a
+
+install:
+	$(INSTALL) -m 0664 libXpm.a $(DESTLIBDIR)
+	cd $(DESTLIBDIR); $(RANLIB) libXpm.a
+	-mkdir $(DESTINCLUDEDIR)
+	-chmod ugo+rx $(DESTINCLUDEDIR)
+	$(INSTALL) -m 0444 xpm.h $(DESTINCLUDEDIR)
+
+../X11/xpm.h: xpm.h
+	@if [ -d ../X11 ]; then set +x; \
+	else (set -x; $(MKDIRHIER) ../X11); fi
+	$(RM) ../X11/xpm.h; \
+	$(LN) ../lib/xpm.h ../X11
+
+# Other dependencies.
+CrBufFrI.o:  xpmP.h xpm.h
+CrBufFrP.o:  xpmP.h xpm.h
+CrDatFI.o:  xpmP.h xpm.h
+CrDatFP.o:  xpmP.h xpm.h
+CrIFrBuf.o:  xpmP.h xpm.h
+CrIFrDat.o:  xpmP.h xpm.h
+CrPFrBuf.o:  xpmP.h xpm.h
+CrPFrDat.o:  xpmP.h xpm.h
+RdFToDat.o:  xpmP.h xpm.h
+RdFToI.o:  xpmP.h xpm.h
+RdFToP.o:  xpmP.h xpm.h
+WrFFrDat.o:  xpmP.h xpm.h
+WrFFrI.o:  xpmP.h xpm.h
+WrFFrP.o:  xpmP.h xpm.h
+create.o:  xpmP.h xpm.h
+data.o:  xpmP.h xpm.h
+hashtab.o:  xpmP.h xpm.h
+misc.o:  xpmP.h xpm.h
+parse.o:  xpmP.h xpm.h
+rgb.o:  xpmP.h xpm.h
+scan.o:  xpmP.h xpm.h
+Attrib.o:  xpmP.h xpm.h
+CrIFrP.o:  xpmP.h xpm.h
+CrPFrI.o:  xpmP.h xpm.h
+Image.o:  xpmP.h xpm.h
+Info.o:  xpmP.h xpm.h
+RdFToBuf.o:  xpmP.h xpm.h
+WrFFrBuf.o:  xpmP.h xpm.h
