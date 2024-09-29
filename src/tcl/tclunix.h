@@ -101,7 +101,7 @@
  */
 
 extern int errno;
-extern int sys_nerr;
+extern const int sys_nerr;
 //#ifndef IS_LINUX
 //extern char *sys_errlist[];
 //#endif

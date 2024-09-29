@@ -516,7 +516,7 @@ Tk_GetPixmapFromData(interp, tkwin, source, width, height)
     Tk_Uid name = NULL;		/* Initialization need only to prevent
 				 * compiler warning. */
     int new;
-    static autoNumber = 0;
+    static int autoNumber = 0;
     char string[20];
 
     if (!initialized) {

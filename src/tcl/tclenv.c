@@ -318,7 +318,7 @@ unsetenv(name)
 
     index = FindVariable((char *)name, &dummy);
     if (index == -1) {
-	return;
+	return 0;
     }
     ckfree(environ[index]);
     for (envPtr = environ+index+1; ; envPtr++) {

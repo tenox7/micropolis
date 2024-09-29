@@ -55,7 +55,7 @@ TkDisplay *tkDisplayList = NULL;
  * Have statics in this module been initialized?
  */
 
-static initialized = 0;
+static int initialized = 0;
 
 /*
  * Context information used to map from X window id's to
