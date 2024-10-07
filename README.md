@@ -31,11 +31,11 @@ Edit `res/weditor.tcl` and change "wm maxsize ..."
 - IRIX 6.5 (mips)
 - HP-UX 11i-v1 (hppa2)
 - HP-UX 11i-v3 (ia64)
-- Solaris 9 (amd32)
+- Solaris 9 (x86)
 
 ## Planned
 
-- Solaris 10 (amd64)
+- Solaris 10 (x64)
 
 ## Maybe
 
@@ -54,8 +54,8 @@ Edit `res/weditor.tcl` and change "wm maxsize ..."
 
 - Solaris 11 - no X11
 - QNX - no X11
-- NextStep - no X11
-- A/UX - no X11
+- NextStep - maybe via CubX ?
+- A/UX - maybe via full screen X11 ?
 
 ## Legal
 
