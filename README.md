@@ -1,6 +1,6 @@
-# Micropolis for Vintage Unix using DUX SimCity assets
+# Micropolis Legacy
 
-This is a fork of [Micropolis Activity](https://github.com/SimHacker/micropolis/tree/master/micropolis-activity). It's uses the ["old gen"](https://wiki.laptop.org/go/Micropolis#Old_Generation:_C_TCL/Tk_Micropolis) source code, which had only minor cosmetic changes compared to [DUX SimCity for Unix](https://web.archive.org/web/19970714233606/http://www.dux.com/simctyux.html). It expects assets from the original DUX SimCity, effectively reversing changes mentioned in [here](https://raw.githubusercontent.com/SimHacker/micropolis/master/micropolis-activity/src/PLAN.txt). Targets vintage Unix systems not supported by DUX Simcity.
+This is a fork of [Micropolis Activity](https://github.com/SimHacker/micropolis/tree/master/micropolis-activity). It's uses the ["old gen"](https://wiki.laptop.org/go/Micropolis#Old_Generation:_C_TCL/Tk_Micropolis) source code, which had only minor, cosmetic changes compared to the [DUX SimCity for Unix](https://web.archive.org/web/19970714233606/http://www.dux.com/simctyux.html). It expects assets from the original game, effectively reversing changes mentioned in [here](https://raw.githubusercontent.com/SimHacker/micropolis/master/micropolis-activity/src/PLAN.txt). Targets vintage Unix systems not supported by the commercial version.
 
 
 ![Micropolis-IRIX](simirix.png)
@@ -19,11 +19,11 @@ Replace `/usr/SimCity/res/sim` with the binary from the releases folder (or comp
 
 Most commonly this is an authorization issue. Try running `xhost +`.
 
-Secondly could be lack of 8-bit color display or visual. Try changing number of colors to 8bpp. On certain platforms you can add a 8bpp visual.
+Second most common problem is lack of 8-bit color display or visual. Try changing number of colors to 8bpp or add add a 8bpp visual.
 
-### The window editor is too small on my giant display
+### The window editor is too small on a modern screen
 
-Edit res/weditor.tcl and change "wm maxsize ..."
+Edit `res/weditor.tcl` and change "wm maxsize ..."
 
 ## Currently supported OS
 
@@ -31,11 +31,11 @@ Edit res/weditor.tcl and change "wm maxsize ..."
 - IRIX 6.5 (mips)
 - HP-UX 11i-v1 (hppa2)
 - HP-UX 11i-v3 (ia64)
-- Solaris 9 (x86)
+- Solaris 9 (amd32)
 
 ## Planned
 
-- Solaris 10 (x64)
+- Solaris 10 (amd64)
 
 ## Maybe
 
