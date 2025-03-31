@@ -1,64 +1,3 @@
-/* w_tool.c
- *
- * Micropolis, Unix Version.  This game was released for the Unix platform
- * in or about 1990 and has been modified for inclusion in the One Laptop
- * Per Child program.  Copyright (C) 1989 - 2007 Electronic Arts Inc.  If
- * you need assistance with this program, you may contact:
- *   http://wiki.laptop.org/go/Micropolis  or email  micropolis@laptop.org.
- * 
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or (at
- * your option) any later version.
- * 
- * This program is distributed in the hope that it will be useful, but
- * WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * General Public License for more details.  You should have received a
- * copy of the GNU General Public License along with this program.  If
- * not, see <http://www.gnu.org/licenses/>.
- * 
- *             ADDITIONAL TERMS per GNU GPL Section 7
- * 
- * No trademark or publicity rights are granted.  This license does NOT
- * give you any right, title or interest in the trademark SimCity or any
- * other Electronic Arts trademark.  You may not distribute any
- * modification of this program using the trademark SimCity or claim any
- * affliation or association with Electronic Arts Inc. or its employees.
- * 
- * Any propagation or conveyance of this program must include this
- * copyright notice and these terms.
- * 
- * If you convey this program (or any modifications of it) and assume
- * contractual liability for the program to recipients of it, you agree
- * to indemnify Electronic Arts for any liability that those contractual
- * assumptions impose on Electronic Arts.
- * 
- * You may not misrepresent the origins of this program; modified
- * versions of the program must be marked as such and not identified as
- * the original program.
- * 
- * This disclaimer supplements the one included in the General Public
- * License.  TO THE FULLEST EXTENT PERMISSIBLE UNDER APPLICABLE LAW, THIS
- * PROGRAM IS PROVIDED TO YOU "AS IS," WITH ALL FAULTS, WITHOUT WARRANTY
- * OF ANY KIND, AND YOUR USE IS AT YOUR SOLE RISK.  THE ENTIRE RISK OF
- * SATISFACTORY QUALITY AND PERFORMANCE RESIDES WITH YOU.  ELECTRONIC ARTS
- * DISCLAIMS ANY AND ALL EXPRESS, IMPLIED OR STATUTORY WARRANTIES,
- * INCLUDING IMPLIED WARRANTIES OF MERCHANTABILITY, SATISFACTORY QUALITY,
- * FITNESS FOR A PARTICULAR PURPOSE, NONINFRINGEMENT OF THIRD PARTY
- * RIGHTS, AND WARRANTIES (IF ANY) ARISING FROM A COURSE OF DEALING,
- * USAGE, OR TRADE PRACTICE.  ELECTRONIC ARTS DOES NOT WARRANT AGAINST
- * INTERFERENCE WITH YOUR ENJOYMENT OF THE PROGRAM; THAT THE PROGRAM WILL
- * MEET YOUR REQUIREMENTS; THAT OPERATION OF THE PROGRAM WILL BE
- * UNINTERRUPTED OR ERROR-FREE, OR THAT THE PROGRAM WILL BE COMPATIBLE
- * WITH THIRD PARTY SOFTWARE OR THAT ANY ERRORS IN THE PROGRAM WILL BE
- * CORRECTED.  NO ORAL OR WRITTEN ADVICE PROVIDED BY ELECTRONIC ARTS OR
- * ANY AUTHORIZED REPRESENTATIVE SHALL CREATE A WARRANTY.  SOME
- * JURISDICTIONS DO NOT ALLOW THE EXCLUSION OF OR LIMITATIONS ON IMPLIED
- * WARRANTIES OR THE LIMITATIONS ON THE APPLICABLE STATUTORY RIGHTS OF A
- * CONSUMER, SO SOME OR ALL OF THE ABOVE EXCLUSIONS AND LIMITATIONS MAY
- * NOT APPLY TO YOU.
- */
 #include "sim.h"
 
 
@@ -85,7 +24,7 @@ short toolSize[] = {
   3, 3, 3, 3,
   1, 3, 1, 1,
   1, 1, 0, 0,
-  4, 1, 4, 4, 
+  4, 1, 4, 4,
   4, 6, 1, 0,
 };
 
@@ -279,7 +218,7 @@ tally(short tileValue)
 {
   /* can we autobulldoze this tile? */
   if (((tileValue >= FIRSTRIVEDGE) &&
-       (tileValue <= LASTRUBBLE)) || 
+       (tileValue <= LASTRUBBLE)) ||
       ((tileValue >= (POWERBASE + 2)) &&
        (tileValue <= (POWERBASE + 12))) ||
       ((tileValue >= TINYEXP) &&
@@ -336,7 +275,7 @@ check3x3border(short xMap, short yMap)
     ConnecTile(xPos, yPos, &Map[xPos][yPos], 0);
     xPos++;
   }
-	
+
   xPos = xMap + 3; yPos = yMap;
   for (cnt = 0; cnt < 3; cnt++) {
     /*** this will do the right bordering row ***/
@@ -467,7 +406,7 @@ check4x4border(short xMap, short yMap)
     ConnecTile(xPos, yPos, tilePtr, 0);
     xPos++;
   }
-	
+
   xPos = xMap + 4; yPos = yMap;
   for (cnt = 0; cnt < 4; cnt++) {
     /* this will do the right bordering row */
@@ -598,7 +537,7 @@ check6x6border(short xMap, short yMap)
     ConnecTile(xPos, yPos, &Map[xPos][yPos], 0);
     xPos++;
   }
-	
+
   xPos = xMap + 6; yPos = yMap;
   for (cnt = 0; cnt < 6; cnt++) {
     /* this will do the right bordering row */
@@ -710,19 +649,19 @@ static short idArray[28] = {
 };
 
 /*
-  0, 2, 21, 44, 
+  0, 2, 21, 44,
   48, 52, 53, 64,
-  208, 224, 240, 423, 
+  208, 224, 240, 423,
   612, 693, 709, 745,
-  761, 770, 779, 811, 
+  761, 770, 779, 811,
   827, 832, 840, 844,
   932, 948, 952, 956
 
-  Clear, Water, Trees, Rubble, 
+  Clear, Water, Trees, Rubble,
   Flood, Radioactive Waste, Fire, Road,
   Power, Rail, Residential, Commercial,
   Industrial, Port, AirPort, Coal Power,
-  Fire Department, Police Department, Stadium, Nuclear Power, 
+  Fire Department, Police Department, Stadium, Nuclear Power,
   Draw Bridge, Radar Dish, Fountain, Industrial,
   49er's 38  Bears 3, Draw Bridge, Ur 238
 */
@@ -820,7 +759,7 @@ DoShowZoneStatus(char *str, char *s0, char *s1, char *s2, char *s3, char *s4,
 put3x3Rubble(short x, short y)
 {
   register xx, yy, zz;
-	
+
   for (xx = x - 1; xx < x + 2; xx++) {
     for (yy = y - 1; yy < y + 2; yy++)  {
       if (TestBounds(xx, yy)) {
@@ -842,7 +781,7 @@ put3x3Rubble(short x, short y)
 put4x4Rubble(short x, short y)
 {
   register xx, yy, zz;
-	
+
   for (xx = x - 1; xx < x + 3; xx++) {
     for (yy = y - 1; yy < y + 3; yy++) {
       if (TestBounds(xx, yy)) {
@@ -879,7 +818,7 @@ put6x6Rubble(short x, short y)
       }
     }
   }
-}	
+}
 
 
 DidTool(SimView *view, char *name, short x, short y)
@@ -950,7 +889,7 @@ bulldozer_tool(SimView *view, short x, short y)
 	MakeSound("city", "Explosion-Low");
 	break;
 
-      case 6: 
+      case 6:
 	MakeSound("city", "Explosion-High");
 	MakeSound("city", "Explosion-Low");
 	put6x6Rubble(x, y);
@@ -973,7 +912,7 @@ bulldozer_tool(SimView *view, short x, short y)
 	put4x4Rubble(x + deltaH, y + deltaV);
 	break;
 
-      case 6: 
+      case 6:
 	MakeSound("city", "Explosion-High");
 	MakeSound("city", "Explosion-Low");
 	put6x6Rubble(x + deltaH, y + deltaV);
@@ -1334,7 +1273,7 @@ ChalkTo(SimView *view, int x, int y)
   if (view->x->dpy->motion_buffer) {
     XTimeCoord *coords = NULL, *coord;
     int n = 0, i;
-    
+
     view->tool_last_event_time = view->tool_event_time;
     view->tool_event_time =
       ((TkWindow *)view->tkwin)->dispPtr->lastEventTime;

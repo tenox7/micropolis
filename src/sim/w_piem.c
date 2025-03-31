@@ -1,25 +1,3 @@
-/* w_piem.c:  Pie Menus
- */
-
-/*
- *
- * Pie Menus for Tk.
- * Copyright (C) 1992 by Don Hopkins.
- *
- * This program is provided for unrestricted use, provided that this 
- * copyright message is preserved. There is no warranty, and no author 
- * or distributer accepts responsibility for any damage caused by this 
- * program. 
- * 
- * This code and the ideas behind it were developed over time by Don Hopkins 
- * with the support of the University of Maryland, UniPress Software, Sun
- * Microsystems, DUX Software, the Turing Institute, and Carnegie Mellon
- * University.  Pie menus are NOT patented or restricted, and the interface 
- * and algorithms may be freely copied and improved upon. 
- *
- */
-
-
 #if 0
 /* workaround to make gcc work on suns */
 #ifndef SOLARIS2
@@ -435,9 +413,9 @@ Tk_PieMenuCmd(clientData, interp, argc, argv)
     menuPtr->entries = NULL;
     menuPtr->numEntries = 0;
     menuPtr->active = -1;
-    menuPtr->group = NULL; 
+    menuPtr->group = NULL;
     menuPtr->root_x = 0;
-    menuPtr->root_y = 0; 
+    menuPtr->root_y = 0;
     menuPtr->border = NULL;
     menuPtr->activeBorder = NULL;
     menuPtr->fontPtr = NULL;
@@ -821,7 +799,7 @@ PieMenuWidgetCmd(clientData, interp, argc, argv)
 	Tk_MoveWindow(menuPtr->tkwin, x, y);
 	menuPtr->root_x = x + menuPtr->center_x;
 	menuPtr->root_y = y + menuPtr->center_y;
-	
+
 	if (Tk_IsMapped(menuPtr->tkwin)) {
 	    if (group != menuPtr->group) {
 		Tk_UnshareEvents(menuPtr->tkwin, menuPtr->group);
@@ -857,7 +835,7 @@ PieMenuWidgetCmd(clientData, interp, argc, argv)
 			 argv[0], " grab window\"", (char *) NULL);
 	goto error;
       }
-      
+
       err =
 	XGrabPointer(Tk_Display(tkwin),
 		     Tk_WindowId(tkwin),
@@ -877,7 +855,7 @@ PieMenuWidgetCmd(clientData, interp, argc, argv)
 	  interp->result = "grab failed: invalid time";
 	} else {
 	  char msg[100];
-	  
+
 	  sprintf(msg, "grab failed for unknown reason (code %d)",
 		  err);
 	  Tcl_AppendResult(interp, msg, (char *) NULL);
@@ -1003,7 +981,7 @@ DestroyPieMenu(clientData)
  * DestroyPieMenuEntry --
  *
  *	This procedure is invoked by Tk_EventuallyFree or Tk_Release
- *	to clean up the internal structure of a pie menu entry at a safe 
+ *	to clean up the internal structure of a pie menu entry at a safe
  *	time (when no-one is using it anymore).
  *
  * Results:
@@ -1382,13 +1360,13 @@ DisplayPieMenu(clientData)
 		     TK_NEWLINES_NOT_SPECIAL);
     }
 
-    if (menuPtr->segments) { 
+    if (menuPtr->segments) {
       XSetLineAttributes(Tk_Display(tkwin), menuPtr->textGC,
 			 0, LineSolid, CapButt, JoinMiter);
       XDrawSegments(Tk_Display(tkwin), Tk_WindowId(tkwin),
 		    menuPtr->textGC, menuPtr->segments, menuPtr->numEntries);
     }
-    
+
     Tk_Draw3DRectangle(Tk_Display(tkwin), Tk_WindowId(tkwin), menuPtr->border,
 		       0, 0, Tk_Width(tkwin), Tk_Height(tkwin),
 		       menuPtr->borderWidth, TK_RELIEF_RAISED);
@@ -1651,7 +1629,7 @@ PieMenuEventProc(clientData, eventPtr)
  *
  * EventuallyRedrawPieMenu --
  *
- *	Arrange for an entry of a pie menu, or the whole pie menu, 
+ *	Arrange for an entry of a pie menu, or the whole pie menu,
  *	to be redisplayed at some point in the future.
  *
  * Results:
@@ -1808,8 +1786,8 @@ UnpostSubPieMenu(interp, menuPtr)
  *
  * ActivatePieMenuEntry --
  *
- *	This procedure is invoked to make a particular pie menu 
- *	entry the active one, deactivating any other entry that 
+ *	This procedure is invoked to make a particular pie menu
+ *	entry the active one, deactivating any other entry that
  *	might currently be active.
  *
  * Results:
@@ -1817,7 +1795,7 @@ UnpostSubPieMenu(interp, menuPtr)
  *	while posting and unposting submenus).
  *
  * Side effects:
- *	Pie menu entries get redisplayed, and the active entry 
+ *	Pie menu entries get redisplayed, and the active entry
  *	changes.  Submenus may get posted and unposted.
  *
  *----------------------------------------------------------------------
@@ -1862,12 +1840,12 @@ ActivatePieMenuEntry(menuPtr, index, preview)
 
 
 /*
- * This pie menu tracking code determines the slice the cursor 
- * is in by representing slice edge angles as (quadrant, slope) 
- * pairs that can be quickly computed and compared. 
+ * This pie menu tracking code determines the slice the cursor
+ * is in by representing slice edge angles as (quadrant, slope)
+ * pairs that can be quickly computed and compared.
  *
  * The slope is defined such that it is greater than or equal to zero,
- * less than infinity, and increasing counter-clockwise around the menu. 
+ * less than infinity, and increasing counter-clockwise around the menu.
  * Each of the four quadrants encompasses one range of slope.
  *
  *                 Y
@@ -1876,13 +1854,13 @@ ActivatePieMenuEntry(menuPtr, index, preview)
  *  x<=0, y>0 <--+       y/x
  *    -x/y       |        ^
  *        quad 1 | quad 0 |     X
- * -----+--------+--------+----> 
+ * -----+--------+--------+---->
  *      | quad 2 | quad 3
  *      V        |      -x/y
  *   x<0, y<=0   +--> x>=0, y<0
  *     y/x       |
  *               |
- * 
+ *
  * The quadrants and slopes of the item edges are all precalculated,
  * during menu layout.
  * The quadrant and slope of the cursor must be calculated frequently
@@ -1893,8 +1871,8 @@ ActivatePieMenuEntry(menuPtr, index, preview)
  * just test "numerator < (denominator * it->slope)".
  *
  * This algorithm works in a right-side-up coordinate space, but the final
- * results are tranformed into X-windows's up-side-down coordinate system 
- * by subtracting the y values from the window height. 
+ * results are tranformed into X-windows's up-side-down coordinate system
+ * by subtracting the y values from the window height.
  */
 
 
@@ -1918,15 +1896,15 @@ CalcPieMenuItem(menu, x, y)
   int i, j, order, quadrant;
   int numerator, denominator;
   int first, last_i, last_order;
-  
+
   /*
-   * Translate x and y from root window coordinates so they are 
+   * Translate x and y from root window coordinates so they are
    * relative to the menu center, in right side up coordinates.
    */
-  
+
   menu->dx = x = (x - menu->root_x) + 1;
   menu->dy = y = (menu->root_y - y) - 1;
-  
+
   /*
    * If there are no menu items,
    * or we are within the inactive region in the menu center,
@@ -1937,20 +1915,20 @@ CalcPieMenuItem(menu, x, y)
        (menu->inactive_radius * menu->inactive_radius))) {
     return(-1);
   }
-  
+
   /*
-   * If there's only one item, then that must be it. 
+   * If there's only one item, then that must be it.
    */
   if (menu->numEntries == 1) {
     return(0);
   }
-  
+
   /*
    * Calculate the quadrant, slope numerator, and slope denominator of
    * the cursor slope, to be used for comparisons.
    */
   CALC_QUADRANT_SLOPE(x, y, quadrant, numerator, denominator);
-  
+
   /*
    * In most cases, during cursor tracking, the menu item that the
    * cursor is over will be the same as it was before (almost all
@@ -1960,7 +1938,7 @@ CalcPieMenuItem(menu, x, y)
    * frequency (the current, the two neighbors, then the rest), we just
    * start our loop around the menu items at the item *before* the
    * last selected menu item, so we still check the three most common
-   * cases first (neighbor, current, neighbor, rest), without having 
+   * cases first (neighbor, current, neighbor, rest), without having
    * to complicate the code with special cases. Another strategy, that
    * might be good for menus with ridiculously many items, would be
    * [to check the current item first, then the two neighbors, then]
@@ -1968,14 +1946,14 @@ CalcPieMenuItem(menu, x, y)
    * But that's more complicated and you shouldn't have that many menu
    * items anyway.
    */
-  
+
   /*
    * Start at the item before current one.
    */
   first = menu->active - 1;
   if (first < 0)
     first = menu->numEntries - 1;
-  
+
   /*
    * Initialize last_order such that we will go through the loop
    * at least once, validating last_i, last_order, and last_it for
@@ -1983,9 +1961,9 @@ CalcPieMenuItem(menu, x, y)
    */
   last_i = last_order = -1;
   i = first;
-  
+
   it = menu->entries[i];
-  
+
   while (1) {
 
 /* Legend: c = cursor, e = edge
@@ -2000,8 +1978,8 @@ CalcPieMenuItem(menu, x, y)
 
 case 0: /*
 		 0,0	 1,1	 2,2	 3,3
-		  |ce	ce|	  |	  |	
-		--+--	--+--	--+--	--+--	
+		  |ce	ce|	  |	  |
+		--+--	--+--	--+--	--+--
 		  |	  |	ce|	  |ce
 	*/
       /* slope >= it->slope */
@@ -2011,7 +1989,7 @@ case 0: /*
 case 1: /*
 		 1,0	 2,1	 3,2	 0,3
 		 c|e	 e|	  |	  |c
-		--+--	--+--	--+--	--+--	
+		--+--	--+--	--+--	--+--
 		  |	 c|	 e|c	  |e
 	*/
       order = 1;
@@ -2020,7 +1998,7 @@ case 1: /*
 case 2: /*
 		 2,0	 3,1	 0,2	 1,3
 		  |e	 e|	  |c	 c|
-		--+--	--+--	--+--	--+--	
+		--+--	--+--	--+--	--+--
 		 c|	  |c	 e|	  |e
 	*/
       /* slope < it->slope */
@@ -2030,7 +2008,7 @@ case 2: /*
 case 3: /*
 		 3,0	 0,1	 1,2	 2,3
 		  |e	 e|c	 c|	  |
-		--+--	--+--	--+--	--+--	
+		--+--	--+--	--+--	--+--
 		  |c	  |	 e|	 c|e
 	*/
       order = 0;
@@ -2060,8 +2038,8 @@ case 3: /*
     }
     it = menu->entries[i];
 
-    /* 
-     * If we've checked all the others, then that must have been it. 
+    /*
+     * If we've checked all the others, then that must have been it.
      * This saves us from checking the leading edge of the first
      * item again (It's also insurance against layout bugs.)
      */
@@ -2155,7 +2133,7 @@ LayoutPieMenu(menu)
 	ldx = last->dx;  ldy = last->dy;
 	lwidth = last->width;  lheight = last->height;
 	while (1) {
-	  register int x, y, lx, ly, 
+	  register int x, y, lx, ly,
 		       x0max, y0max, x1min, y1min;
 
 	  x = dx * radius + it->x_offset;
@@ -2237,7 +2215,7 @@ LayoutPieMenu(menu)
     if ((it->y + it->height) > maxy) maxy = (it->y + it->height);
   }
 
-  
+
   if (menu->titleLength != 0) {
     menu->title_height = titlefont->ascent + titlefont->descent + 2;
     (void) TkMeasureChars(titlefont, menu->title,

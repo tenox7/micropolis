@@ -1,64 +1,3 @@
-/* g_cam.c
- *
- * Micropolis, Unix Version.  This game was released for the Unix platform
- * in or about 1990 and has been modified for inclusion in the One Laptop
- * Per Child program.  Copyright (C) 1989 - 2007 Electronic Arts Inc.  If
- * you need assistance with this program, you may contact:
- *   http://wiki.laptop.org/go/Micropolis  or email  micropolis@laptop.org.
- * 
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or (at
- * your option) any later version.
- * 
- * This program is distributed in the hope that it will be useful, but
- * WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * General Public License for more details.  You should have received a
- * copy of the GNU General Public License along with this program.  If
- * not, see <http://www.gnu.org/licenses/>.
- * 
- *             ADDITIONAL TERMS per GNU GPL Section 7
- * 
- * No trademark or publicity rights are granted.  This license does NOT
- * give you any right, title or interest in the trademark SimCity or any
- * other Electronic Arts trademark.  You may not distribute any
- * modification of this program using the trademark SimCity or claim any
- * affliation or association with Electronic Arts Inc. or its employees.
- * 
- * Any propagation or conveyance of this program must include this
- * copyright notice and these terms.
- * 
- * If you convey this program (or any modifications of it) and assume
- * contractual liability for the program to recipients of it, you agree
- * to indemnify Electronic Arts for any liability that those contractual
- * assumptions impose on Electronic Arts.
- * 
- * You may not misrepresent the origins of this program; modified
- * versions of the program must be marked as such and not identified as
- * the original program.
- * 
- * This disclaimer supplements the one included in the General Public
- * License.  TO THE FULLEST EXTENT PERMISSIBLE UNDER APPLICABLE LAW, THIS
- * PROGRAM IS PROVIDED TO YOU "AS IS," WITH ALL FAULTS, WITHOUT WARRANTY
- * OF ANY KIND, AND YOUR USE IS AT YOUR SOLE RISK.  THE ENTIRE RISK OF
- * SATISFACTORY QUALITY AND PERFORMANCE RESIDES WITH YOU.  ELECTRONIC ARTS
- * DISCLAIMS ANY AND ALL EXPRESS, IMPLIED OR STATUTORY WARRANTIES,
- * INCLUDING IMPLIED WARRANTIES OF MERCHANTABILITY, SATISFACTORY QUALITY,
- * FITNESS FOR A PARTICULAR PURPOSE, NONINFRINGEMENT OF THIRD PARTY
- * RIGHTS, AND WARRANTIES (IF ANY) ARISING FROM A COURSE OF DEALING,
- * USAGE, OR TRADE PRACTICE.  ELECTRONIC ARTS DOES NOT WARRANT AGAINST
- * INTERFERENCE WITH YOUR ENJOYMENT OF THE PROGRAM; THAT THE PROGRAM WILL
- * MEET YOUR REQUIREMENTS; THAT OPERATION OF THE PROGRAM WILL BE
- * UNINTERRUPTED OR ERROR-FREE, OR THAT THE PROGRAM WILL BE COMPATIBLE
- * WITH THIRD PARTY SOFTWARE OR THAT ANY ERRORS IN THE PROGRAM WILL BE
- * CORRECTED.  NO ORAL OR WRITTEN ADVICE PROVIDED BY ELECTRONIC ARTS OR
- * ANY AUTHORIZED REPRESENTATIVE SHALL CREATE A WARRANTY.  SOME
- * JURISDICTIONS DO NOT ALLOW THE EXCLUSION OF OR LIMITATIONS ON IMPLIED
- * WARRANTIES OR THE LIMITATIONS ON THE APPLICABLE STATUTORY RIGHTS OF A
- * CONSUMER, SO SOME OR ALL OF THE ABOVE EXCLUSIONS AND LIMITATIONS MAY
- * NOT APPLY TO YOU.
- */
 #include "sim.h"
 
 
@@ -341,7 +280,7 @@ int dagnabit = 0;
       bounce = 1;
     }
   }
-  
+
   if (y < 0) {
     y = 0;
     if (!dragging) {
@@ -359,7 +298,7 @@ printf("dagnabit\n");
       bounce = 1;
     }
   }
-  
+
   if (dragging) {
     dx = x - last_x;
     dy = y - last_y;
@@ -384,12 +323,12 @@ cam_update(SimCam *scam, Cam *cam)
 {
   if (scam->x->shared) {
     XShmPutImage(scam->x->dpy, Tk_WindowId(scam->tkwin), scam->x->gc,
-		 scam->image, cam->x, cam->y, 
+		 scam->image, cam->x, cam->y,
 		 cam->x, cam->y, cam->width, cam->height,
 		 False);
   } else {
     XPutImage(scam->x->dpy, Tk_WindowId(scam->tkwin), scam->x->gc,
-	      scam->image, cam->x, cam->y, 
+	      scam->image, cam->x, cam->y,
 	      cam->x, cam->y, cam->width, cam->height);
   }
 }
@@ -419,7 +358,7 @@ cam_adjust(SimCam *scam, Cam *cam)
     if (width > 0) x1 = x0 + width;
     if (height > 0) y1 = y0 + height;
 
-    cam->set_width = cam->set_height = 
+    cam->set_width = cam->set_height =
       cam->set_x0 = cam->set_y0 =
       cam->set_x1 = cam->set_y1 = -1;
 
@@ -746,7 +685,7 @@ int ranch(QUAD l0, QUAD l1, QUAD l2)
   }
 
   return (o);
-} 
+}
 
 
 void
@@ -900,7 +839,7 @@ n_ball(Cam *cam)
     for (x = p + (cam->width >>1); x > 0; x--) {
       Byte nw = back[0], ne = back[1],
              sw = back[backline], se = back[backline+1];
-      
+
       r += nw + ne + sw + sw; r >>= 1;
 
       switch ((nw&1) + (ne&1) + (sw&1) + (se&1)) {
@@ -976,7 +915,7 @@ n_logic(Cam *cam)
     for (x = cam->width >>1; x > 0; x--) {
       Byte nw = back[0], ne = back[1],
              sw = back[backline], se = back[backline+1];
-      
+
       switch (((nw&128) >>4) | ((ne&128) >>5) |
 	      ((sw&128) >>6) | ((se&128) >>7)) {
       case 0:
@@ -1060,7 +999,7 @@ vf neighborhoods[] = {
 /* 0 1 2 3 */
   &n_moore_a, &n_moore_a, &n_moore_ab, &n_vonn_neumann,
 /* 4 5 6 */
-  &n_margolis, &n_margolis_ph, &n_margolis_hv, 
+  &n_margolis, &n_margolis_ph, &n_margolis_hv,
 /* 7 8			9 10 11 12 */
   &n_life, &n_brain, &n_heat, &n_dheat, &n_lheat, &n_ldheat,
 /* 13 14 15 16 17 */
@@ -1185,7 +1124,7 @@ cam_layout(SimCam *scam)
   maxwidth = lastmax = gap;
 
   for (cam = scam->cam_list; cam != NULL; cam = cam->next) {
-    cam->dx = 0; cam->dy = 0;    
+    cam->dx = 0; cam->dy = 0;
     if (cam->width > maxwidth) {
       lastmax = maxwidth;
       maxwidth = cam->width;
