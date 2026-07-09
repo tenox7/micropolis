@@ -32,6 +32,7 @@ Edit `res/weditor.tcl` and change "wm maxsize ..."
 - HP-UX 11i-v1 (hppa2)
 - HP-UX 11i-v3 (ia64)
 - Solaris 9 (x86)
+- Motorola SVR4 (m88k)
 
 ## Planned
 
